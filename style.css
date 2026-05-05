@@ -222,7 +222,7 @@ body {
                               rgba(0, 0, 0, 0.0));
     position: relative;
     overflow: hidden;
-    padding: 100px 160px;        /* match left margin to topics section */
+    padding: 100px 160px;        
     color: white;
     border-bottom: 1px solid #333;
     height: 40vh;
@@ -269,7 +269,7 @@ body {
 .facts-strip {
     background-color: #1a1a1a;
     padding: 30px 160px;
-    border-bottom: 1px solid #333;
+    border-bottom: 0px solid #333;
     color: #fff;
 }
 
@@ -297,7 +297,7 @@ body {
 .facts-inner {
     display: flex;
     flex-direction: row;
-    gap: 0;
+    gap: 0px;
 }
 
 .fact-item {

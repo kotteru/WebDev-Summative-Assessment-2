@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venus Overview</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* article-specific styles */
+        
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 12px;
+            color: #888;
+            padding: 12px 160px;
+            background-color: #111;
+            border-bottom: 1px solid #222;
+        }
+        .breadcrumb a { color: #888; text-decoration: none; }
+        .breadcrumb a:hover { color: #fff; }
+        .breadcrumb span { margin: 0 6px; }
+
+        .venus-hero {
+            background: linear-gradient(
+                                        90deg,
+                                    rgba(0, 0, 0, 1.0), 
+                                    rgba(0, 0, 0, 0.0));
+            border-bottom: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+            min-height: 50vh;
+            display: flex;
+            padding: 80px 160px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+        }
+        
+        .venus-hero h1 {
+            font-family: Rogan, serif;
+            font-style: bold;
+            font-size: 90px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .venus-hero p {
+            font-size: 18px;
+            color: #bbb;
+            max-width: 500px;
+        }
+
+
+
+        .article-img {
+            margin-top: 20px;
+        }
+        .article-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .img-caption {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .img-credit {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .article-centered {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 60px 80px;
+            gap: 60px;
+            background-color: #f5f5f5;
+            color: #000;
+            border-bottom: 1px solid #ddd;
+            justify-content: center;
+        }
+
+        .article-centered .h1 {
+            font-family: Rogan, serif;
+            font-style: bold;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .article-centered .h2 {
+            font-family: Rogan, serif;
+            font-style: bold;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .article-centered p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .article-centered-text {
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <span class="logo">Big Planetarium</span>
+            <a href="index.html">Explore</a>
+            <a href="#">Blog &amp; Articles</a>
+            <a href="#">Gallery</a>
+            <a href="#">Immersive</a>
+        </div>
+    </header>
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="Explore.html">Explore</a><span>›</span>
+        Venus
+    </div>
+    <main>
+        <!-- hero section -->
+        <div class="venus-hero">
+            <h1>Venus</h1>
+            <p>Venus is the second planet from the Sun, and the sixth largest planet. It’s the hottest planet in our solar system.</p>
+            <!-- background image -->
+            <img class="big-feature-bg" src="assets/venus_hero.jpg" alt="Venus">
+               <div class="solar-stats">
+                    <div class="solar-stat">
+                        <span class="solar-stat-number">467</span>
+                        <span class="solar-stat-label">°C Surface Temp</span>
+                    </div>
+                    <div class="solar-stat">
+                        <span class="solar-stat-number">243</span>
+                        <span class="solar-stat-label">Earth Days Per Venus Day</span>
+                    </div>
+                </div>
+        </div>
+        <!-- Venus Facts Strip -->
+
+        <section class="solar-facts">
+            <p class="label" style="letter-spacing: 4px;">04 THINGS ABOUT VENUS</p>
+            <div class="solar-facts-row">
+                <div class="topic-box">
+                    <img src="assets/RADAR_obs_venus.jpg" alt="Venus Atmosphere">
+                    <div class="topic-text">
+
+                        <p><b>Extreme Atmosphere</b></p>
+
+                        <p>Venus' thick atmosphere is mostly carbon dioxide, trapping heat in a runaway greenhouse effect.</p>
+
+                    </div>
+                </div>
+
+                <div class="topic-box">
+
+                    <img src="assets/venus_hero.jpg" alt="Venus Rotation">
+                    <div class="topic-text">
+
+                        <p><b>Backward &amp; Slow</b></p>
+
+                        <p>Venus spins opposite to most planets. The Sun rises in the west and sets in the east.</p>
+
+                    </div>
+                </div>
+                <div class="topic-box">
+                    <img src="assets/RADAR_obs_venus.jpg" alt="Venus Surface">
+                    <div class="topic-text">
+
+                        <p><b>Volcanic Surface</b></p>
+
+                        <p>Thousands of volcanoes and towering mountains dot the surface, recently reshaped by geological forces.</p>
+
+                    </div>
+                </div>
+                <div class="topic-box">
+                    <img src="assets/venus_hero.jpg" alt="Venus Clouds">
+                    <div class="topic-text">
+
+                        <p><b>Possible Life?</b></p>
+
+                        <p>About 30 miles up, temperatures ease to a habitable range. Scientists haven't ruled out microbial life in the clouds.</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="article">
+            <div class="article-text">
+
+                <p class="label">FACTS ON VENUS</p>
+
+                <h2>VENUS</h2>
+
+                <p><b>Venus is the second planet from the Sun, and the sixth largest planet. It’s the hottest planet in our solar system.</b></p>
+                
+                <p>
+                    Venus is a cloud-swaddled planet and our nearest planetary neighbor. It has a surface hot enough to melt lead. 
+                    Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.
+                </p>
+                <br>
+                <a href="tau-ceti.html" class="learn-more">Read more</a>
+            </div>
+            <div class="article-img">
+                <img src="assets/RADAR_obs_venus.jpg" alt="Radar Observations of Venus">
+                <p class="img-caption">
+                    This hemispheric view of Venus was created using radar observations, including images from NASA's Magellan spacecraft. 
+                    Magellan imaged more than 98% of Venus. Gaps in the Magellan coverage were filled with images from the Earth-based Arecibo radar. 
+                </p>
+                <p class="img-credit">NASA/JPL</p>
+            </div>
+        </div>
+        <div class="article-centered">
+            <div class="article-centered-text">
+
+                <h1>Introduction</h1>
+
+                <p><b>Venus is the second planet from the Sun, and Earth's closest planetary neighbor. Venus is the third brightest object in the sky after the Sun and Moon. Venus spins slowly in the opposite direction from most planets. </b></p>
+                
+                <p>
+                    Venus is similar in structure and size to Earth, and is sometimes called Earth's evil twin. Its thick atmosphere traps heat in a runaway greenhouse effect, 
+                    making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius). 
+                    And the atmospheric pressure at the surface is about 93 times what it is at sea level on Earth. Below Venus' dense, persistent clouds, the surface has volcanoes 
+                    and deformed mountains.
+                </p>
+                <br>
+                <h2>Namesake</h2>
+                <p>
+                    The ancient Romans could easily see seven bright objects in the sky: the Sun, the Moon, and the five brightest  
+                    planets: Mercury, Venus, Mars, Jupiter, and Saturn. They named the objects after their most important gods. 
+                    Venus is named for the ancient Roman goddess of love and beauty, who was known as Aphrodite to the ancient
+                    Greeks. Most features on Venus are named for women. It’s the only planet named after a female god. 
+                </p>
+                <br>
+                <h2>Potential for Life</h2>
+                <p>
+                    Thirty miles up (about 50 kilometers) from the surface of Venus temperatures range from 86 to 158 Fahrenheit 
+                    (30 to 70 Celsius). This temperature range could accommodate Earthly life, such as “extremophile” microbes. And
+                    atmospheric pressure at that height is similar to what we find on Earth’s surface.
+                </p>
+
+                <p>
+                    At the tops of Venus’ clouds, whipped around the planet by winds measured as high as 224 mph (360 kph), we find another transformation. Persistent, dark streaks appear. 
+                    Scientists are so far unable to explain why these streaks remain stubbornly intact, even amid hurricane-force winds. They also have the odd habit of absorbing ultraviolet radiation.
+                </p>
+
+                <p>
+                    The most likely explanations focus on fine particles, ice crystals, or even a chemical compound called iron chloride. Although it's much less likely, 
+                    another possibility considered by scientists who study astrobiology is that these streaks could be made up of microbial life, Venus-style. 
+                    Astrobiologists note that ring-shaped linkages of sulfur atoms, known to exist in Venus’ atmosphere, could provide microbes with a kind of coating that would protect them from sulfuric acid. 
+                    These handy chemical cloaks would also absorb potentially damaging ultraviolet light and re-radiate it as visible light.
+                </p>
+
+                <p>
+                    Some of the Russian Venera probes did, indeed, detect particles in Venus’ lower atmosphere about a micron in length — roughly the same size as a bacterium on Earth.
+                </p>
+
+                <p>
+                    None of these findings provide compelling evidence for the existence of life in Venus’ clouds. But the questions they raise, along with Venus’ vanished ocean, its violently volcanic surface, 
+                    and its hellish history, make a compelling case for missions to investigate our temperamental sister planet. There is much, it would seem, that she can teach us.
+                </p>
+                <br>
+                <h2>Size and Distance</h2>
+                <p>
+                    Venus orbits the Sun from an average distance of 67 million miles (108 million kilometers), or 0.72 astronomical units. 
+                    One astronomical unit (abbreviated as AU), is the distance from the Sun to Earth. From this distance, it takes sunlight about six minutes to travel from the Sun to Venus.
+                </p>
+                <p>
+                    Earth's nearness to Venus is a matter of perspective. The planet is nearly as big around as Earth. Its diameter at its equator is about 7,521 miles (12,104 kilometers), versus 7,926 miles (12,756 kilometers) for Earth. 
+                    From Earth, Venus is the brightest object in the night sky after our own Moon. The ancients, therefore, gave it great importance in their cultures, even thinking it was two objects: a morning star and an evening star. 
+                    That’s where the trick of perspective comes in.
+                </p>
+                <p>
+                    Because Venus’ orbit is closer to the Sun than ours, the two of them — from our viewpoint — never stray far from each other. 
+                    The ancient Egyptians and Greeks saw Venus in two guises: first in one orbital position (seen in the morning), then another (your “evening” Venus), 
+                    just at different times of the year.
+                </p>
+                <p>
+                    At its nearest to Earth, Venus is about 24 million (about 38 million kilometers) away. But most of the time the two planets are farther apart. 
+                    The maximum distance between Venus and Earth is about 162 million miles (261 million kilometers). Mercury, the innermost planet, actually spends more time in Earth’s proximity than Venus.
+                </p>
+                <p>
+                    One more trick of perspective: how Venus looks through binoculars or a telescope. Keep watch over many months, and you’ll notice that Venus has phases, 
+                    just like our Moon — full, half, quarter, etc. The complete cycle, however, new to full, takes 584 days, while our Moon takes just a month. And it was this perspective, 
+                    the phases of Venus first observed by Galileo through his telescope, that provided the key scientific proof for the Copernican heliocentric nature of the solar system.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Interactive -->
+        <div class="interactive">
+            <h2 style="font-family: Rogan, serif; font-weight: bold;">Eyes on Venus</h2>
+            <figure class="smd-iframe">
+                <iframe 
+                    src="https://eyes.nasa.gov/apps/solar-system/#/venus" 
+                    title="Eyes on Venus in Real-Time" 
+                    loading="lazy" 
+                    allow="fullscreen">
+                    Unable to render the provided source
+                </iframe>
+                <figcaption>
+                    <p class="img-caption">Eyes of the Solar System uses data and images from NASA missions to give you a simulated view of our solar system.</p>
+                    <p class="img-credit">NASA/JPL-Caltech</p>
+                </figcaption>
+                <br>
+                <a href="#" class="more-link">More Interactive media &rarr;</a>
+            </figure>
+        </div>    
+
+    </main>
+    <footer>
+        <div class="footer">
+            <p><b>Big Planetarium</b></p>
+            <p>Bristol, United Kingdom</p>
+            <p>
+                <a href="#">Fun Resources</a> |
+                <a href="#">Contact Big Planetarium</a>
+            </p>
+            <p>Follow us on:
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Instagram</a> |
+                <a href="#">YouTube</a>
+            </p>
+            <br>
+            <p class="small-text">Page Last Modified: May 04, 2026</p>
+    </footer>
+</body>
+</html>

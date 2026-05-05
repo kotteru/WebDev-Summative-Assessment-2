@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Science Behind 'Project Hail Mary'</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Article-page specific styles ── */
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 12px;
+            color: #888;
+            padding: 12px 160px;
+            background-color: #111;
+            border-bottom: 1px solid #222;
+        }
+        .breadcrumb a { color: #888; text-decoration: none; }
+        .breadcrumb a:hover { color: #fff; }
+        .breadcrumb span { margin: 0 6px; }
+
+        /* article hero — full immersive, matches index.html hero */
+        .article-hero {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.65),
+                rgba(0, 0, 0, 0.0)
+            );
+            border-bottom: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+            min-height: 50vh;
+            display: flex;
+            padding: 80px 160px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* background image sits behind content */
+        .article-hero-bg {
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: contain;
+            
+        }
+
+        .article-hero .hero-label {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #c0fe04;
+            text-transform: uppercase;
+            margin: 0 0 16px 0;
+        }
+
+        .article-hero h1 {
+            font-family: Rogan, serif;
+            font-weight: bold;
+            font-size: 72px;
+            color: #fff;
+            line-height: 1.05;
+            margin: 0 0 20px 0;
+            max-width: 700px;
+        }
+
+        .article-hero .hero-sub {
+            font-size: 17px;
+            color: #ccc;
+            max-width: 520px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* article title block */
+        .article-title-block {
+            background-color: #fff;
+            color: #000;
+            padding: 50px 160px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        .article-title-block h1 {
+            font-family: Rogan, serif;
+            font-size: 52px;
+            font-weight: bold;
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+            max-width: 700px;
+            color: #000;
+        }
+        .article-title-block .intro-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.7;
+            max-width: 620px;
+            margin-bottom: 16px;
+        }
+
+        /* dark Q&A strip */
+        .qa-strip {
+            background-color: #111;
+            padding: 20px 160px;
+            border-bottom: 1px solid #333;
+        }
+        .qa-strip .label {
+            margin-bottom: 16px;
+        }
+        .qa-row {
+            display: flex;
+            gap: 0;
+            align-items: stretch;
+        }
+        .qa-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+            padding-right: 30px;
+            border-right: 1px solid #2a2a2a;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+        .qa-item:last-child {
+            border-right: none;
+            margin-right: 0;
+            padding-right: 0;
+        }
+        .qa-item img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #333;
+        }
+        .qa-item-text p {
+            margin: 0;
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.4;
+        }
+        .qa-item-text p:first-child {
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        /* article content sections (white bg) */
+        .article-section {
+            background-color: #fff;
+            color: #000;
+            padding: 50px 160px;
+            border-bottom: 1px solid #ddd;
+        }
+        .article-section h2 {
+            font-family: Rogan, serif;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0 0 18px 0;
+            max-width: 680px;
+            color: #000;
+        }
+        .article-section h3 {
+            font-family: Rogan, serif;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px 0 10px;
+            color: #000;
+        }
+        .article-section p {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.75;
+            max-width: 660px;
+            margin-bottom: 16px;
+        }
+        .article-section ul {
+            padding-left: 18px;
+            max-width: 660px;
+        }
+        .article-section ul li {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 6px;
+        }
+        .article-section ul li a {
+            color: #1a6db5;
+            text-decoration: none;
+        }
+        .article-section ul li a:hover { text-decoration: underline; }
+
+        /* two-column article layout (text left, image right) */
+        .article-two-col {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        .article-two-col .col-text { flex: 1; }
+        .article-two-col .col-img {
+            flex: 0 0 340px;
+        }
+        .article-two-col .col-img img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .article-two-col .col-img .img-caption {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+        .article-two-col .col-img .img-credit {
+            font-size: 12px;
+            color: #333;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        /* "Images at top" linked list */
+        .images-list {
+            background-color: #fff;
+            padding: 30px 160px;
+            border-bottom: 1px solid #ddd;
+        }
+        .images-list h4 {
+            font-size: 14px;
+            color: #333;
+            margin: 0 0 20px;
+            font-weight: normal;
+        }
+        .images-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 18px 0;
+            border-top: 1px solid #ddd;
+        }
+        .images-list-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #ccc;
+        }
+        .images-list-item .item-title {
+            font-family: Rogan, serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            flex: 1;
+            line-height: 1.2;
+        }
+        .images-list-item .item-desc {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+            flex: 2;
+        }
+        .images-list-item .item-arrow {
+            width: 32px;
+            height: 32px;
+            background-color: #e63b2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            align-self: center;
+        }
+
+        /* full-width inline image */
+        .article-full-img {
+            background-color: #fff;
+            padding: 0 160px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        .article-full-img img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .article-full-img .img-caption {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+        .article-full-img .img-credit {
+            font-size: 12px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* related links list inside article-section */
+        .related-links {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 20px;
+            max-width: 660px;
+            border-top: 1px solid #ddd;
+        }
+        .related-links li {
+            border-bottom: 1px solid #ddd;
+        }
+        .related-links li a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            text-decoration: none;
+        }
+        .related-links li a img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #ccc;
+        }
+        .related-links li a .link-title {
+            font-family: Rogan, serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            flex: 1;
+        }
+        .related-links li a .link-arrow {
+            width: 28px;
+            height: 28px;
+            background-color: #e63b2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* dark feature section (full bleed bg image) */
+        .dark-feature {
+            position: relative;
+            overflow: hidden;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #222;
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 45%, rgba(0,0,0,0.3) 100%);
+        }
+        .dark-feature-bg {
+            position: absolute;
+            z-index: -1;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%; min-height: 100%;
+            object-fit: cover;
+        }
+        .dark-feature-content {
+            padding: 60px 160px;
+            max-width: 620px;
+            color: #fff;
+        }
+        .dark-feature-content h2 {
+            font-family: Rogan, serif;
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0 0 18px;
+            line-height: 1.1;
+        }
+        .dark-feature-content p {
+            font-size: 15px;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* video embed card */
+        .video-card {
+            background-color: #000000;
+            border: 1px solid #000000;
+            padding: 30px 160px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            border-bottom: 1px solid #222;
+        }
+        .video-card-text {
+            flex: 1;
+        }
+        .video-card-text .label { margin-bottom: 10px; }
+        .video-card-text h3 {
+            font-family: Rogan, serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            margin: 0 0 12px;
+        }
+        .video-card-text p {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .video-card-thumb {
+            flex: 0 0 340px;
+            position: relative;
+        }
+        .video-card-thumb img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 52px; height: 52px;
+            background-color: #e63b2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* card grid (2–4 up) */
+        .card-grid {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .card-grid .card {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* "No Erid, Question?" section */
+        .no-erid {
+            background-color: #fff;
+            color: #000;
+            padding: 50px 160px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        .no-erid .col-text { flex: 1; }
+        .no-erid .col-text .label { color: #888; }
+        .no-erid .col-text h2 {
+            font-family: Rogan, serif;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0 16px;
+            color: #000;
+        }
+        .no-erid .col-text p {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+        .no-erid .col-img {
+            flex: 0 0 320px;
+        }
+        .no-erid .col-img img {
+            width: 100%;
+            object-fit: cover;
+        }
+        .no-erid .col-img .img-caption {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+        .no-erid .col-img .img-credit {
+            font-size: 12px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* inline learn-more red dot */
+        .learn-more-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #000;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .learn-more-dark .dot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px; height: 22px;
+            background-color: #e63b2e;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 13px;
+        }
+        .learn-more-dark:hover { opacity: 0.8; }
+
+        /* what hardships grid */
+        .hardships-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 740px;
+        }
+        .hardship-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .hardship-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .hardship-card .hc-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 20px 10px 10px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .hardship-card .hc-arrow {
+            position: absolute;
+            bottom: 8px; right: 8px;
+            width: 24px; height: 24px;
+            background-color: #e63b2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <span class="logo">Big Planetarium</span>
+        <a href="index.html">Explore</a>
+        <a href="#">Blog &amp; Articles</a>
+        <a href="#">Gallery</a>
+        <a href="#">Immersive</a>
+    </div>
+</header>
+
+<!-- breadcrumb -->
+<div class="breadcrumb">
+    <a href="index.html">Home</a><span>›</span>
+    <a href="#">Blog &amp; Articles</a><span>›</span>
+    The Science Behind 'Project Hail Mary'
+</div>
+
+<main>
+
+    <!-- full immersive hero -->
+    <div class="article-hero">
+        <img class="article-hero-bg" src="assets/adrian_1.jpg" alt="Project Hail Mary - Adrian">
+        <p class="hero-label">ARTICLE</p>
+        <h1>The Science Behind<br>'Project Hail Mary'</h1>
+        <p class="hero-sub">The Science behind Andy Weir's Sci-fi Book and now Blockbuster Film directed by Phil Lord & Christopher Miller</p>
+    </div>
+    
+    <!-- ROCKY has answers – Q&A strip -->
+    <div class="qa-strip">
+        <p class="label">ROCKY HAS ANSWERS. QUESTIONS?</p>
+        <div class="qa-row">
+            <div class="qa-item">
+                <img src="assets/tauceti_question.jpg" alt="Tau Ceti">
+                <div class="qa-item-text">
+                    <p>Is Tau Ceti a real star?</p>
+                    <p>And does it actually have a planet around it?</p>
+                </div>
+            </div>
+            <div class="qa-item">
+                <img src="assets/astronaut_iss.jpg" alt="Astronauts">
+                <div class="qa-item-text">
+                    <p>How long can astronauts stay in space?</p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="qa-item">
+                <img src="assets/Erid_question.jpg" alt="Erid">
+                <div class="qa-item-text">
+                    <p>Is Erid a real planet?</p>
+                    <p>Bad news for Rocky; also for Mr. Spock</p>
+                </div>
+            </div>
+            <div class="qa-item">
+                <img src="assets/comms.png" alt="Deep Space">
+                <div class="qa-item-text">
+                    <p>How do we communicate with spacecraft so far away?</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- title + intro -->
+    <div class="article-title-block">
+        <h1>Does the Science Track?</h1>
+        <p class="intro-text">
+            In the science-fiction novel and movie "Project Hail Mary," the story revolves around 
+            the rigors of an astronaut working and surviving during a yearslong mission, the power 
+            of deep-space communications, the search for life beyond Earth, and nearby star systems 
+            that actually exist — Tau Ceti and 40 Eridani A.
+        </p>
+    </div>
+        <div class="article-full-img">
+            <img src="assets/PHM_adrian.png" alt="Tau Ceti E">
+            <p class="img-caption">Artist's concept of the exoplanet Tau Ceti e, which orbits the star Tau Ceti every 168 days. Credit: NASA/JPL-Caltech</p>
+            <p class="img-credit">NASA</p>
+        </div>
+
+
+    <!-- Images at top linked list -->
+    <div class="images-list">
+        <div class="images-list-item">
+            <img src="assets/project-hail-mary.jpg" alt="Green Planet">
+            <div class="item-title">A Glowing Green Planet,<br>Teeming With Life</div>
+            <div class="item-desc">
+                What might look like a pair of spacecraft orbiting a pale green exoplanet (as "Adrien" is described) is actually a photo of the International Space Station above Earth in October 2024. Severe geomagnetic storms created not only the more common shimmering green northern lights, but also very rare bright-red auroras in the atmosphere. Credit: NASA astronaut Don Pettit
+            </div>
+            <a href="#" class="item-arrow">→</a>
+        </div>
+        <div class="images-list-item">
+            <img src="assets/Venus_Transit_Across_Sun_.jpeg" alt="Venus Transit">
+            <div class="item-title">Venus Gets Between Earth and the Sun</div>
+            <div class="item-desc">
+                The 2012 Transit of Venus — the spectacle of Venus as it passes across the face of the Sun — is captured in this multiple-exposure, ultra-high-definition view by the Solar Dynamics Observatory spacecraft. The rarest predictable solar event, the next Venus transit won't happen until 2117. Credit: NASA/Goddard Space Flight Center/SDO
+            </div>
+            <a href="#" class="item-arrow">↑</a>
+        </div>
+        <div class="images-list-item">
+            <img src="assets/ERid.jpeg" alt="No Rocky Exoplanet">
+            <div class="item-title">No Rocky Exoplanet</div>
+            <div class="item-desc">
+                Rocky exoplanet 40 Eridani A b might not exist, but this near-infrared image shows the confirmed exoplanet 51 Eridani b, about 96 light-years from Earth. Captured in 2014 by the Gemini Planet Imager, this view masks the star at center, 51 Eridani, so its glare doesn't obscure the Jupiter-sized planet. Credit: Gemini Observatory, NSF's NOIRLab, NSF, AURA, Julien Rameau (University of Montreal), Christian Marois (NRC Herzberg)
+            </div>
+            <a href="#" class="item-arrow">→</a>
+        </div>
+    </div>
+
+    <!-- DSN text block -->
+    <div class="article-section">
+        <p>
+            In "Project Hail Mary," a character mentions that his spacecraft will "await instructions from the 
+            Deep Space Network," and that they could be as far away as the orbit of Saturn. In real life, the DSN 
+            routinely sends and receives messages to spacecraft at the Moon, the outer planets, and even the farthest 
+            spacecraft in history, Voyager 1, which is currently about 16 billion miles beyond Saturn (26 billion kilometers).
+        </p>
+        <p style="font-weight:bold;">
+            The DSN never stops talking to spacecraft out there. See for yourself, with 'DSN Now.'
+            <a href="#" class="learn-more-dark" style="margin-left:6px;"><span class="dot">→</span></a>
+        </p>
+    </div>
+
+    <!-- DSN Video card -->
+    <div class="video-card">
+        <div class="video-card-text">
+            <p class="label">DEEP DSN</p>
+            <h3>Long-Distance Call and Response: Watch How the DSN Works</h3>
+            <p>
+                When scientists and engineers want to send commands to a spacecraft in deep space, they turn to the 
+                Deep Space Network. NASA's array of giant radio antennas around the globe, making it possible to 
+                communicate with spacecraft at the Moon and far beyond.
+            </p>
+            <a href="#" class="learn-more">Learn More About the Deep Space Network →</a>
+        </div>
+        <div class="video-card-thumb">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6WFj-CKldv4" title="How Do We Communicate with Faraway Spacecraft?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <a href="#" class="play-btn">▶</a>
+        </div>
+    </div>
+
+    <!-- Astrobiology -->
+    <div class="no-erid">
+        <div class="col-text">
+            <p class="label">THE SEARCH FOR LIFE</p>
+            <h2>Astrobiology</h2>
+            <p>
+                Are we alone? Is there life anywhere else in the universe? NASA has been striving to answer these 
+                big questions — maybe the biggest — since its first exobiology research in 1959. Ever since, the 
+                agency has been investigating life on many levels: how it began, how it evolved here on Earth, and 
+                where it might exist elsewhere.
+            </p>
+            <a href="#" class="learn-more-dark">Learn more about NASA's search for life in the cosmos <span class="dot">→</span></a>
+        </div>
+        <div class="col-img">
+        </div>
+    </div>
+
+    <!-- The Sun -->
+    <div class="article-section">
+        <h2>The Sun</h2>
+        <p>
+            The star in our backyard; it may appear like an unchanging source of light and heat in the sky. But the Sun 
+            is a dynamic star, constantly changing and sending energy out into space — energy necessary for life on Earth. 
+            And it's been doing that for about 4.6 billion years, with another 5 billion or so in its current state. 
+            Learn more about the Sun and how NASA studies it, including the first spacecraft ever to fly through its atmosphere 
+            and touch the only star we can study up close.
+        </p>
+        <ul style="list-style:disc;padding-left:20px;max-width:600px;">
+            <li style="font-size:14px;color:#333;margin-bottom:6px;">
+                <a href="#" style="color:#1a6db5;text-decoration:none;">Will the Sun Ever Burn Out? We Asked a NASA Expert: Episode 60</a>
+            </li>
+        </ul>
+        <a href="#" class="learn-more-dark">Learn More About the Sun, Our Neighborhood Star <span class="dot">→</span></a>
+
+        
+        <a href="Venus.html"><h2 style="margin-top:50px;" text-decoration="none">Venus</h2></a>
+        <p>
+            Venus is sometimes called Earth's twin, because it's our closest planetary neighbor and is similar in size 
+            and structure. But the similarities end pretty quickly. Venus has a surface temperature hotter than Mercury 
+            (even though that planet is much closer to the Sun), and its atmosphere is a heat-trapping blanket of carbon 
+            dioxide that creates air pressure 93 times greater on the surface than at sea level on Earth, with sulfuric-acid 
+            clouds swirling at 200 mph.
+        </p>
+        <p>
+            The carbon dioxide so attractive to fictional "astrophage" — the microbial menace in "Project Hail Mary" — has 
+            led to a runaway greenhouse effect on a planet that scientists believe may have once been habitable. Its erstwhile 
+            twin has surface temperatures reaching 872 degrees Fahrenheit (467 degrees Celsius). The story is different 
+            higher up, though — about 30 miles above the surface of Venus (about 50 kilometers), temperatures range from 
+            86 to 158 degrees Fahrenheit (30 to 70 Celsius), with atmospheric pressure similar to what we find on Earth's surface.
+        </p>
+        <ul style="list-style:disc;padding-left:20px;max-width:600px;">
+            <li style="font-size:14px;color:#333;">
+                <a href="#" style="color:#1a6db5;text-decoration:none;">Venus Exploration – NASA Science</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Exoplanets section -->
+    <div class="article-section">
+        <h2>Exoplanets — Other Stars, Other Worlds</h2>
+        <p>
+            Exoplanets are planets outside our solar system; for the most part they orbit other stars, the way that Earth, 
+            Venus, and the other planets in our solar system orbit the Sun. Scientists have confirmed more than 6,000 
+            exoplanets in our galaxy, out of the billions that we believe exist. Learn more about some of the nearby star 
+            systems with newfound celebrity — Tau Ceti and 40 Eridani A.
+        </p>
+    </div>
+
+    <!-- Tau Ceti -->
+    <div class="article-section" style="padding-top: 20px;">
+        <h2>Tau Ceti</h2>
+        <p>
+            Tau Ceti has long been a popular setting in science fiction, as one of the nearest Sun-like stars. Featured in 
+            works by Isaac Asimov, Arthur C. Clarke, Frank Herbert, Robert Heinlein, Ursula K. Le Guin, and Kim Stanley 
+            Robinson, the Tau Ceti system even serves as the setting for the 1968 Jane Fonda film, "Barbarella." In 
+            "Project Hail Mary" it's the origin of an apocalyptic plague, source of the Earth-saving solution, and perhaps 
+            even the ancestral home of one or more characters.
+        </p>
+        <h3>Tau Ceti e</h3>
+        <p>
+            Nicknamed "Adrian" in "Project Hail Mary," this exoplanet was one of four planets announced to be orbiting Tau 
+            Ceti in 2017. But new studies released in 2024 and 2025, which performed additional monitoring and analysis of 
+            the star, showed that all four signals are likely due to quirks of the data-analysis process, or activity on 
+            the surface of Tau Ceti itself, not by any planets around it.
+        </p>
+        <a href="#" class="learn-more-dark">Learn more about the Tau Ceti star system <span class="dot">→</span></a>
+    </div>
+
+    <!-- 40 Eridani A -->
+    <div class="article-section" style="padding-top: 20px;">
+        <h2>40 Eridani A</h2>
+        <p>
+            Another popular star in science fiction, 40 Eridani A is home to the planet Vulcan in "Star Trek" and a 
+            life-supporting planet in "Dune." The star is actually part of a three-star system, with 40 Eridani B and C; 
+            it's also called Keid (from the Arabic word for eggshells) or HD 26965.
+        </p>
+        <h3>40 Eridani A b</h3>
+        <p>
+            The exoplanet called Erid in "Project Hail Mary" — Rocky's home world; it was thought to be a real exoplanet 
+            when discovered in 2018, but turned out to be a false positive. At the time, people liked to compare it to 
+            Vulcan from Star Trek, because that planet also orbited 40 Eridani A. For "Project Hail Mary" novelist Andy 
+            Weir, the exobiology in his story was inspired by the supposed environment of 40 Eridani A b — an extremely 
+            high-pressure world where life evolved to "see" using echolocation, to minimize movement and energy expenditure.
+        </p>
+        <a href="#" class="learn-more-dark">Learn more about the 40 Eridani star system <span class="dot">→</span></a>
+        <br><br>
+        <a href="#" class="learn-more-dark">Learn more about Exoplanets, worlds outside our solar system <span class="dot">→</span></a>
+    </div>
+
+    <!-- Discovery Alert: Spock's Home Planet -->
+    <div class="no-erid">
+        <div class="col-text">
+            <p class="label">NO ERID, QUESTION?</p>
+            <h2>Discovery Alert: Spock's Home Planet Goes 'Poof'</h2>
+            <p>
+                A planet thought to orbit the star 40 Eridani A — host to Mr. Spock's fictional home planet, Vulcan, 
+                in the "Star Trek" universe (as well as Rocky's home planet in "Project Hail Mary") — was really a kind 
+                of astronomical illusion caused by the pulses and jitters of the star itself, a 2024 study showed.
+            </p>
+            <a href="#" class="learn-more-dark">Read the Story <span class="dot">→</span></a>
+        </div>
+        <div class="col-img">
+            <img src="assets/noerid-question.png" alt="40 Eridani A concept art">
+            <p class="img-caption">Artist's concept shows a full disk of the imagined exoplanet around 40 Eridani A, nicknamed "Vulcan" for the home planet of Mr. Spock of "Star Trek" and Erid, the home planet of Rocky in "Project Hail Mary".</p>
+            <p class="img-credit">NASA/JPL-Caltech</p>
+        </div>
+    </div>
+
+    <!-- Full-width inline image -->
+    <div class="article-full-img">
+        <img src="assets/spacewalk.jpg" alt="Astronaut spacewalk">
+        <p class="img-caption">(Nov. 15, 2022) — NASA astronaut and Expedition 68 Flight Engineer Frank Rubio is pictured during a spacewalk tethered to the International Space Station's starboard truss structure. Behind Rubio, the last rays of an orbital sunset penetrate Earth's thin atmosphere as the space station flew 258 miles above the African nation of Algeria.</p>
+        <p class="img-credit">NASA</p>
+    </div>
+
+    <!-- Deep Space Network – dark feature -->
+    <div class="dark-feature">
+        <img class="dark-feature-bg" src="assets/hubble.jpeg" alt="Deep Space Network dishes">
+        <div class="dark-feature-content">
+            <h2>How Do We Talk to Distant Spacecraft?</h2>
+            <p>
+                The Deep Space Network, NASA's worldwide network of enormous radio antennas is communicating 
+                with our spacecraft 24/7, including probes headed for the asteroid belt, at Mars, even in 
+                interstellar space. Based in Madrid, Spain, in Canberra, Australia, and in the Southern 
+                California desert at Goldstone, they're evenly spaced around the globe so every area of 
+                the sky is covered.
+            </p>
+            <a href="#" class="learn-more">Learn More About the DSN →</a>
+        </div>
+    </div>
+
+    <!-- Artemis and Human Spaceflight -->
+    <div class="article-section">
+        <h2>Artemis and Human Spaceflight</h2>
+        <p>
+            NASA is returning astronauts to deep space for the first time in 50+ years, with the launch of Artemis II 
+            on Wednesday, April 1, carrying four crew members beyond the Moon and back — venturing farther from Earth 
+            than humans have ever traveled. Artemis III and IV will follow, orbiting Earth and then returning astronauts 
+            to the surface of the Moon. Each mission builds on the ones before it, extending further, for ever-longer 
+            periods of time, expanding human exploration from the Moon, to Mars, and beyond.
+        </p>
+        <p>
+            But space travel is hard on humans — especially extended missions — so NASA has long studied the impacts of 
+            spaceflight on astronauts, including the effects of isolation and the ways that microgravity changes the body, 
+            as well as ways to develop food that's appetizing as well as nutritious.
+        </p>
+
+        <h3>In It For the Long Haul</h3>
+        <h4 style="font-size:15px;font-weight:bold;margin:0 0 10px;color:#000;">Long-Duration Spaceflights</h4>
+
+        <div class="article-two-col">
+            <div class="col-text">
+                <p>
+                    Among NASA astronauts, Frank Rubio and Peggy Whitson are the current extended-stay record holders. 
+                    On Sept. 27, 2023, Rubio ended a 371-day mission aboard the International Space Station, the first 
+                    time a U.S. astronaut spent more than one year in space on a single mission. Whitson holds the 
+                    cumulative record among U.S. astronauts, with a total of 665 days during three long-duration 
+                    missions — two of which she was ISS commander. Russian cosmonauts have spent even longer periods in space.
+                </p>
+                <p>
+                    NASA's Artemis II astronaut Christina Koch holds the record for the longest spaceflight by a woman, 
+                    328 days, set during her mission to the International Space Station from 2019–2020. Now she holds the 
+                    distance record, shared with her Artemis II crewmates. On April 6, passing over the far side of the 
+                    Moon, they reached a maximum distance from Earth at 252,756 miles, setting a new record for human spaceflight.
+                </p>
+                <ul>
+                    <li><a href="#">Astronaut's Record-Setting Mission Helps NASA Plan Deep Space Journeys</a></li>
+                    <li><a href="#">NASA Astronaut Peggy Whitson Adds Three Months to Record-Breaking Mission</a></li>
+                    <li><a href="#">International Space Station Astronaut Record Holders – NASA</a></li>
+                </ul>
+            </div>
+            <div class="col-img">
+                <img src="assets/ISS_scientist.jpg" alt="Astronaut in ISS">
+                <p class="img-caption">(2/17/2017) — Aboard the International Space Station, NASA astronaut Peggy Whitson harvests and cleans a type of cabbage, cultivated in orbit, sampled, and then sent to Earth for testing.</p>
+                <p class="img-credit">Thomas Pesquet</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+
+<!-- footer -->
+<footer>
+    <div class="footer">
+        <p><b>Big Planetarium</b></p>
+        <p>Bristol, United Kingdom</p>
+        <p>
+            <a href="#">Fun Resources</a> |
+            <a href="#">Contact Big Planetarium</a>
+        </p>
+        <p>Follow us on:
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">Instagram</a> |
+            <a href="#">YouTube</a>
+        </p>
+        <br>
+        <p class="small-text">Page Last Modified: May 04, 2026</p>
+    </div>
+</footer>
+
+</body>
+</html>
